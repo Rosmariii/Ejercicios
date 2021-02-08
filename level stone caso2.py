@@ -9,18 +9,16 @@ class Coche(Vehiculo):
         self.velocidad = velocidad
         self.cilindrada = cilindrada
 
-    def Caracteristicas(self):
-        return f'Estas son las las Caracteristicas de Coche:\n velocidad {self.velocidad} km/h\n cilindrada: {self.cilindrada} \n color: {self.color} \n rueda: {self.ruedas}' 
+    def __repr__(self):
+        return f'Estas son las las Caracteristicas de Coche:\n velocidad {self.velocidad !r} km/h\n cilindrada: {self.cilindrada !r} \n color: {self.color !r} \n rueda: {self.ruedas !r}' 
         
-
-
 class Camioneta(Coche):
     def __init__(self, velocidad, cilindrada, carga, color, ruedas): 
         Coche.__init__(self, color, ruedas, velocidad, cilindrada) 
         self.carga = carga
 
-    def Caracteristicas(self):
-        return f'Estas son las las Caracteristicas de Camioneta:\n velocidad {self.velocidad} km/h \n cilindrada: {self.cilindrada} \n color: {self.color} \n rueda: {self.ruedas}' 
+    def __repr__(self):
+        return f'Estas son las las Caracteristicas de Camioneta:\n velocidad {self.velocidad !r} km/h \n cilindrada: {self.cilindrada !r} \n color: {self.color !r} \n rueda: {self.ruedas !r}' 
         
 #class Bicicleta(Vehiculo):
 #    def __init__(self, tipo):
@@ -32,8 +30,8 @@ class Camioneta(Coche):
 #        self.velocidad = velocidad
 #        self.cilindrada = cilindrada
 
-v1 = Coche('Rojo', '19', '210', '2.0')
-v2 = Camioneta('290', '2.2', '250', 'Blanco', '20')
+v1 = Coche('Rojo', 19, 210, 2.0)
+v2 = Camioneta(290, 2.2, 250, 'Blanco', 20)
 #v3 = Bicicleta('deportiva', 'negro', 17)
 #v4 = Motocileta('deportiva', 120, 600, 'Blanco', 17)
 
@@ -50,18 +48,18 @@ transporte = [v1, v2]
 def Catalogar(listVehiculo, xruedas = None):
     if xruedas == None:
         for vehiculo in listVehiculo:
-            print(vehiculo.Caracteristicas())
+            print(vehiculo.__repr__())
     
     else:
         countVehiculo = 0
         ruedasEncontradas = 0
 
         for vehiculo in listVehiculo:
-            if vehiculo.color == xruedas:
+            if vehiculo.ruedas == xruedas:
                 countVehiculo = countVehiculo + 1
                 ruedasEncontradas = xruedas
         
         print(f"Se han encontrado {countVehiculo} vehículos con {ruedasEncontradas} ruedas:")               
         
-Catalogar(transporte, '19')
+Catalogar(transporte, 20)
         

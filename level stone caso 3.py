@@ -20,8 +20,6 @@ class Triángulo():
         else: 
             print('Este triángulo es de tipo Escaleno') 
 
-     
-
 while(True):
     try: 
         lA = (int(input('Ingrese el tamaño del lado A del triangulo: ')))
@@ -40,3 +38,4 @@ print(unTriángulo.TipoTriángulo())
 
 #git add .
 #git commit -m ""
+#git push
